@@ -3,7 +3,7 @@ package com.coright.coreshop.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-// NOTE: @RestController == @RequestBody + @Controller
+// NOTE #2: @RestController == @RequestBody + @Controller
 @RestController
 public class HelloController {
 
