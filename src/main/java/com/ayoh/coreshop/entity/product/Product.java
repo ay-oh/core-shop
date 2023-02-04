@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 회원 개체입니다.
@@ -21,6 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ToString
 public class Product {
 
     @Id
