@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 회원 개체입니다.
@@ -17,6 +19,8 @@ import javax.persistence.Table;
  */
 @Table(name = "products")
 @Entity
+@Getter
+@Setter
 public class Product {
 
     @Id
