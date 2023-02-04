@@ -43,7 +43,7 @@ class ProductRepositoryTest {
 
     @DisplayName("상품명 조회 테스트")
     @Test
-    void findByName() {
+    void testFindByName() {
         // given
         this.saveProducts();
 
@@ -66,6 +66,33 @@ class ProductRepositoryTest {
             product.setUpdatedDate(LocalDateTime.now());
 
             productRepository.save(product);
+        }
+    }
+
+    @DisplayName("Query 애노테이션을 이용한 상품 조회 테스트")
+    @Test
+    void testFindByDetails() {
+        // given
+        this.saveProducts();
+
+        // when
+        List<Product> foundProducts = productRepository.findByDetails("테스트 상품 상세 설명");
+
+        // then
+        for (Product product : foundProducts) {
+            System.out.println(product.toString());
+        }
+    }
+
+    @DisplayName("nativeQuery 속성을 이용한 상품 조회 테스트")
+    @Test
+    void findByDetailsByNativeQuery() {
+        this.saveProducts();
+
+        List<Product> foundProducts = productRepository.findByDetailsByNativeQuery("테스트 상품 상세 설명");
+
+        for (Product product : foundProducts) {
+            System.out.println(product);
         }
     }
 
