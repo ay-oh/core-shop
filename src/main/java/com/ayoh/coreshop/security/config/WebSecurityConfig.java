@@ -19,7 +19,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class WebSecurityConfig {
 
-
     /**
      * 인증 및 인가 제어를 위한 보안 필터 체인입니다.
      *
@@ -29,6 +28,7 @@ public class WebSecurityConfig {
      */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         return http.build();
     }
 
