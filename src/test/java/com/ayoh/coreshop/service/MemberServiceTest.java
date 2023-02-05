@@ -68,23 +68,26 @@ class MemberServiceTest {
     }
 
     private Member createMember() {
-        MemberSignUpRequest request = new MemberSignUpRequest();
-        request.setEmail("test@gmail.com");
-        request.setPassword("{bcrypt}123$");
-        request.setName("홍길동");
-        request.setAddress("서울특별시 송파구 잠실본동");
+        // MemberSignUpRequest request = new MemberSignUpRequest();
+        // request.setEmail("test@gmail.com");
+        // request.setPassword("{bcrypt}123$");
+        // request.setName("홍길동");
+        // request.setAddress("서울특별시 송파구 잠실본동");
+
+        MemberSignUpRequest request = new MemberSignUpRequest("test@gmail.com", "{bcrypt}123$", "홍길동",
+                                                              "서울특별시 송파구 잠실본동");
 
         return Member.newInstance(request, passwordEncoder);
     }
 
     private MemberSignUpRequest createMemberSignUpRequest() {
-        MemberSignUpRequest request = new MemberSignUpRequest();
-        request.setEmail("test@gmail.com");
-        request.setPassword("{bcrypt}123$");
-        request.setName("홍길동");
-        request.setAddress("서울특별시 송파구 잠실본동");
+        // MemberSignUpRequest request = new MemberSignUpRequest();
+        // request.setEmail("test@gmail.com");
+        // request.setPassword("{bcrypt}123$");
+        // request.setName("홍길동");
+        // request.setAddress("서울특별시 송파구 잠실본동");
 
-        return request;
+        return new MemberSignUpRequest("test@gmail.com", "{bcrypt}123$", "홍길동", "서울특별시 송파구 잠실본동");
     }
 
 }
