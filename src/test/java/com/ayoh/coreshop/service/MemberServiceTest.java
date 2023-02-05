@@ -25,7 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 class MemberServiceTest {
 
     @InjectMocks
-    MemberService memberService;
+    CsMemberService memberService;
 
     @Mock
     MemberRepository memberRepository;
@@ -37,12 +37,13 @@ class MemberServiceTest {
     @DisplayName("회원가입 테스트")
     void signUp() {
         // given
-        Member member = this.createMember();
+        MemberSignUpRequest signUpRequest = this.createMemberSignUpRequest();
+        Member member = MemberService.toEntity(signUpRequest, passwordEncoder);
         given(memberRepository.findByEmail(anyString())).willReturn(Optional.empty());
         given(memberRepository.save(any(Member.class))).willReturn(member);
 
         // when
-        Member savedMember = memberService.signUp(member);
+        Member savedMember = memberService.signUp(signUpRequest);
 
         // then
         assertThat(member.getEmail()).isEqualTo(savedMember.getEmail());
@@ -54,12 +55,13 @@ class MemberServiceTest {
     @Test
     void testSignUpAccountAlreadyExistsThenThrowException() {
         // given
-        Member member1 = this.createMember();
-        Member member2 = this.createMember();
-        given(memberRepository.findByEmail(anyString())).willReturn(Optional.of(member1));
+        MemberSignUpRequest signUpRequest1 = this.createMemberSignUpRequest();
+        Member member1 = MemberService.toEntity(signUpRequest1, passwordEncoder);
+        MemberSignUpRequest signUpRequest2 = this.createMemberSignUpRequest();
+        given(memberRepository.findByEmail(anyString())).willReturn(Optional.ofNullable(member1));
 
         // when
-        assertThatThrownBy(() -> memberService.signUp(member2)).isInstanceOf(IllegalStateException.class);
+        assertThatThrownBy(() -> memberService.signUp(signUpRequest2)).isInstanceOf(IllegalStateException.class);
 
         // then
         verify(memberRepository, times(1)).findByEmail(anyString());
@@ -73,6 +75,16 @@ class MemberServiceTest {
         request.setAddress("서울특별시 송파구 잠실본동");
 
         return Member.newInstance(request, passwordEncoder);
+    }
+
+    private MemberSignUpRequest createMemberSignUpRequest() {
+        MemberSignUpRequest request = new MemberSignUpRequest();
+        request.setEmail("test@gmail.com");
+        request.setPassword("{bcrypt}123$");
+        request.setName("홍길동");
+        request.setAddress("서울특별시 송파구 잠실본동");
+
+        return request;
     }
 
 }
