@@ -7,6 +7,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 /**
  * 스프링 시큐리티를 통해 인증 및 인가를 관리하기 위한 구성 클래스입니다.
@@ -19,6 +22,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class WebSecurityConfig {
 
+    private AuthenticationSuccessHandler loginSuccessHandler;
+    private LogoutHandler logoutHandler;
+    private LogoutSuccessHandler logoutSuccessHandler;
+
     /**
      * 인증 및 인가 제어를 위한 보안 필터 체인입니다.
      *
@@ -28,7 +35,21 @@ public class WebSecurityConfig {
      */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable();
+        // http.csrf().disable();
+
+        http.formLogin()
+            .loginPage("/login")
+            .loginProcessingUrl("/auth/login")
+            .defaultSuccessUrl("/")
+            .successHandler(this.loginSuccessHandler)
+            .permitAll();
+
+        http.logout()
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/login")
+            .addLogoutHandler(this.logoutHandler)
+            .logoutSuccessHandler(this.logoutSuccessHandler);
+
         return http.build();
     }
 

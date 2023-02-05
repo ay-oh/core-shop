@@ -26,4 +26,15 @@ public class MemberController {
         return "redirect:/";
     }
 
+    @GetMapping(path = "/login")
+    public String goLoginPage() {
+        return "pages/members/login";
+    }
+
+    @GetMapping(path = "/login/error")
+    public String loginError(Model model) {
+        model.addAttribute("loginErrorMessage", "아이디 또는 비밀번호를 확인해주세요");
+        return "pages/members/login";
+    }
+
 }

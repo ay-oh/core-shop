@@ -5,6 +5,9 @@ import com.ayoh.coreshop.entity.member.Member;
 import com.ayoh.coreshop.repository.MemberRepository;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,5 +36,26 @@ public class CsMemberService implements MemberService {
     // Check the availability of a member
     // private void validateMemberAvailability(Member member) {
     // }
+
+    /**
+     * 회원 정보를 조회하여 사용자의 정보와 권한을 갖는 {@link UserDetails} 인터페이스를 반환합니다.
+     * <p>
+     * {@inheritDoc}
+     *
+     * @param email the email identifying the user whose data is required.
+     * @return {@link UserDetails} 인터페이스
+     * @throws UsernameNotFoundException
+     */
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Member member = memberRepository.findByEmail(email)
+                                        .orElseThrow(() -> new UsernameNotFoundException(email));
+
+        return User.builder()
+                   .username(member.getEmail())
+                   .password(member.getPassword())
+                   .roles(member.getRole().toString())
+                   .build();
+    }
 
 }
