@@ -1,6 +1,6 @@
-package com.coright.coreshop.controller;
+package com.ayoh.coreshop.controller;
 
-import com.coright.coreshop.dto.UserDto;
+import com.ayoh.coreshop.dto.UserDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

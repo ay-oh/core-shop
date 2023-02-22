@@ -1,4 +1,4 @@
-package com.coright.coreshop.dto;
+package com.ayoh.coreshop.dto;
 
 import lombok.Getter;
 import lombok.Setter;
