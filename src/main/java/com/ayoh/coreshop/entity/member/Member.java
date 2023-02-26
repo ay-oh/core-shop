@@ -18,7 +18,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 /**
  * 회원 개체입니다.
  *
- * @version 1.0.0
+ * Javadoc: Java Documentation
+ *
+ * @version 1.1.0
  * @since 1.0.0
  */
 @Table(name = "members")
@@ -69,5 +71,21 @@ public class Member {
 
         return member;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    // 마우스라는 물체 -> 객체
+
+    // 사용자 정의 타입 -> "클래스"
+    // class Wheel
+
+    // 가로, 세로, 휠, ... "속성" -> 필드
+    // 왼쪽 클릭 누르면 -> action -> "기능" -> 메서드
 
 }
