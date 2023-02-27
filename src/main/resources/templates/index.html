@@ -1,28 +1,40 @@
 <!doctype html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>메인 페이지</title>
     </head>
     <body>
         <header>
             <a href="/signup">회원가입</a>
+            <a href="/login">로그인</a>
+            <a href="/logout">로그아웃</a>
         </header>
-        <h1>상품 데이터 출력 예제</h1>
-        <div>
-            상품명: <span th:text="${result.name}"></span>
-        </div>
-        <div>
-            상품 가격: <span th:text="${result.price}"></span>
-        </div>
-        <div>
-            상품 상세 설명: <span th:text="${result.details}"></span>
-        </div>
-        <div>
-            상품 등록일: <span th:text="${result.createdDate}"></span>
-        </div>
+
+        <main>
+            <h1>상품 데이터 출력 예제</h1>
+            <div th:each="item : ${result}">
+                <br>
+                상품명: <span th:text="${item.name}"></span>
+                <br>
+                상품 가격: <span th:text="${item.price}"></span>
+                <br>
+                상품 상세 설명: <span th:text="${item.details}"></span>
+                <br>
+                상품 등록일: <span th:text="${item.createdDate}"></span>
+                <br>
+            </div>
+
+            <!-- productDto -->
+            <div th:each="item : ${productDto}">
+                상품명: <span th:text="${item.getName()}">나는문어</span>
+            </div>
+        </main>
+
+        <span th:text="'M<b>V</b>C'"/>
+        <span th:utext="'M<b>V</b>C'"/>
     </body>
 </html>
