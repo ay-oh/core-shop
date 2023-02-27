@@ -1,7 +1,7 @@
 package com.ayoh.coreshop.controller.product;
 
 import com.ayoh.coreshop.entity.product.Product;
-import com.ayoh.coreshop.service.ProductService;
+import com.ayoh.coreshop.service.product.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +29,7 @@ public final class ProductController {
         this.productService = productService;
     }
 
-    // Model View Controller -> layered 아키텍처
+    // Model View Controller -> 레이어드 아키텍처(layered architecture)
     // http://localhost:8080/index.html
     @GetMapping(path = "/")
     public String goProductsPage(Model model) {

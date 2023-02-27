@@ -1,7 +1,24 @@
 # NOTE #1: TCP/UDP의 포트 목록(https://ko.wikipedia.org/wiki/TCP/UDP%EC%9D%98_%ED%8F%AC%ED%8A%B8_%EB%AA%A9%EB%A1%9D)
 server:
+  # 애플리케이션 포트 설정
   port: 80
 
 spring:
   application:
     name: core-shop
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/core_shop?serverTimezone=UTC
+    username: csadmin
+    password: 123$
+
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true

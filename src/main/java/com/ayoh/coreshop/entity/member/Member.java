@@ -29,6 +29,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Setter
 public class Member {
 
+    /*
+     * 자바 자료형은 크게 2가지 종류로 나뉩니다.
+     * 1. 원시 자료형(primitive type): 기본 자료형이라고도 불리며, boolean, char, int, long, float, double 등을 말합니다.
+     * 2. 참조 자료형(reference type): 객체로 생성해서 사용하는(new 키워드 사용) 자료형을 말하며, Class 가 대표적인 예입니다.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_no")
