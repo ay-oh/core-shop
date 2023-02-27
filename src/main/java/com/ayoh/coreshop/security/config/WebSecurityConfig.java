@@ -1,5 +1,6 @@
 package com.ayoh.coreshop.security.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,11 +21,12 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
  */
 @EnableWebSecurity
 @Configuration
+@RequiredArgsConstructor
 public class WebSecurityConfig {
 
-    private AuthenticationSuccessHandler loginSuccessHandler;
-    private LogoutHandler logoutHandler;
-    private LogoutSuccessHandler logoutSuccessHandler;
+    private final AuthenticationSuccessHandler loginSuccessHandler;
+    private final LogoutHandler logoutHandler;
+    private final LogoutSuccessHandler logoutSuccessHandler;
 
     /**
      * 인증 및 인가 제어를 위한 보안 필터 체인입니다.
@@ -36,6 +38,11 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // http.csrf().disable();
+
+        // permitAll only works with either HttpSecurity.authorizeRequests() or HttpSecurity.authorizeHttpRequests(). Please define one or the other but not both.
+        http.authorizeHttpRequests()
+            .anyRequest()
+            .permitAll();
 
         http.formLogin()
             .loginPage("/login")

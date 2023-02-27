@@ -26,4 +26,9 @@ public class MemberPageController {
         return "pages/members/login";
     }
 
+    @GetMapping(path = "/logout")
+    public String goLogoutPage() {
+        return "pages/members/logout";
+    }
+
 }
