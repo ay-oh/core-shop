@@ -1,4 +1,4 @@
-package com.ayoh.coreshop.controller;
+package com.ayoh.coreshop.controller.product;
 
 import com.ayoh.coreshop.entity.product.Product;
 import com.ayoh.coreshop.service.ProductService;

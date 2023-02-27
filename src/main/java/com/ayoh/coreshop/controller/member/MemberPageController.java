@@ -1,29 +1,18 @@
-package com.ayoh.coreshop.controller;
+package com.ayoh.coreshop.controller.member;
 
 import com.ayoh.coreshop.dto.MemberSignUpRequest;
-import com.ayoh.coreshop.service.MemberService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-@RequiredArgsConstructor
-public class MemberController {
-
-    private final MemberService memberService;
+public class MemberPageController {
 
     @GetMapping(path = "/signup")
     public String goSignUpFormPage(Model model) {
+        // thymeleaf 뷰 템플릿 엔진에서 th:object 와 th:field 문법을 사용하기 위해 모델에 빈 객체 설정
         model.addAttribute("memberSignUpRequest", new MemberSignUpRequest(null, null, null, null));
         return "pages/members/signup";
-    }
-
-    @PostMapping(path = "/signup")
-    public String doSignUp(final MemberSignUpRequest memberRequest) {
-        memberService.signUp(memberRequest);
-        return "redirect:/";
     }
 
     @GetMapping(path = "/login")
