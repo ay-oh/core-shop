@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 /**
@@ -25,7 +24,7 @@ import static java.util.Objects.nonNull;
  * @since 1.0.0
  */
 @Component
-public class LoginSuccessHandler implements AuthenticationSuccessHandler {
+public class CsSuccessHandler implements AuthenticationSuccessHandler {
 
     public static final String SESSION_ID = "CSESSIONID";
     public static final String DEFAULT_TARGET_URL = "/";
@@ -33,7 +32,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     private final RequestCache requestCache;
     private final RedirectStrategy redirectStrategy;
 
-    public LoginSuccessHandler() {
+    public CsSuccessHandler() {
         this.requestCache = new HttpSessionRequestCache();
         this.redirectStrategy = new DefaultRedirectStrategy();
     }

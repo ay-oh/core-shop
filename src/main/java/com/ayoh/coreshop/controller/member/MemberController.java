@@ -1,7 +1,7 @@
 package com.ayoh.coreshop.controller.member;
 
 import com.ayoh.coreshop.dto.MemberSignUpRequest;
-import com.ayoh.coreshop.service.MemberService;
+import com.ayoh.coreshop.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

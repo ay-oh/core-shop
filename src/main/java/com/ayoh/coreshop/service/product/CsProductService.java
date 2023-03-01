@@ -12,7 +12,7 @@ import java.util.List;
  * 스트레오타입 애너테이션(stereotype: 편견, 선입견) annotation).
  */
 @Service
-public class DefaultProductService implements ProductService {
+public class CsProductService implements ProductService {
 
     @Override
     public List<Product> getProducts() {

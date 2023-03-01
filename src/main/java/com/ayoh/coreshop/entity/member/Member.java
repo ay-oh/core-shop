@@ -1,7 +1,7 @@
 package com.ayoh.coreshop.entity.member;
 
 import com.ayoh.coreshop.dto.MemberSignUpRequest;
-import com.ayoh.coreshop.security.constant.Role;
+
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;

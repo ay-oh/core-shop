@@ -16,7 +16,7 @@ import java.io.IOException;
  * @since 1.0.0
  */
 @Component
-public class CustomLogoutSuccessHandler implements LogoutSuccessHandler {
+public class CsLogoutSuccessHandler implements LogoutSuccessHandler {
 
     /**
      * 로그아웃이 성공했을 때, 로그인 페이지로 리디렉션(redirection) 을 수행합니다.

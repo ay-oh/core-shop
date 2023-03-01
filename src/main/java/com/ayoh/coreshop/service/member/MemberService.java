@@ -1,4 +1,4 @@
-package com.ayoh.coreshop.service;
+package com.ayoh.coreshop.service.member;
 
 import com.ayoh.coreshop.dto.MemberSignUpRequest;
 import com.ayoh.coreshop.entity.member.Member;

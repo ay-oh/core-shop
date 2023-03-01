@@ -17,7 +17,7 @@ import static java.util.Objects.nonNull;
  * @since 1.0.0
  */
 @Component
-public class CustomLogoutHandler implements LogoutHandler {
+public class CsLogoutHandler implements LogoutHandler {
 
     /**
      * 로그아웃 요청 수행 시 세션을 무효화합니다.

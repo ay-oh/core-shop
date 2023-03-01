@@ -13,6 +13,9 @@ import com.ayoh.coreshop.dto.MemberSignUpRequest;
 import com.ayoh.coreshop.entity.member.Member;
 import com.ayoh.coreshop.repository.MemberRepository;
 import java.util.Optional;
+
+import com.ayoh.coreshop.service.member.CsMemberService;
+import com.ayoh.coreshop.service.member.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
