@@ -26,7 +26,7 @@ public class Order {
     @Column(name = "order_no")
     private Long id;
 
-    // TODO #1: @Enumberated 애노테이션을 @Convert 로 수정하세요.
+    // TODO #1: @Enumerated 애노테이션을 @Convert 로 수정하세요.
     @Enumerated(EnumType.STRING)
     @Column(name = "order_status")
     private ProductSellStatus sellStatus;

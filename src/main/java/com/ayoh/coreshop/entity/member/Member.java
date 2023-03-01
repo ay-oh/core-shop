@@ -2,7 +2,10 @@ package com.ayoh.coreshop.entity.member;
 
 import com.ayoh.coreshop.dto.MemberSignUpRequest;
 import com.ayoh.coreshop.security.constant.Role;
-import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,14 +14,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 /**
  * 회원 개체입니다.
  * <p>
- * Javadoc: Java Documentation
+ * NOTE: Javadoc(Java Documentation)
  *
  * @version 1.1.0
  * @since 1.0.0
@@ -47,6 +50,8 @@ public class Member {
     private String password;
 
     // NOTE: 가독성을 위해 모두 명시하거나, 애노테이션을 생략하는 방식 중 하나를 택하되 혼용해서 사용하지 말 것
+    @NotNull
+    @Size(max = 50)
     @Column
     private String name;
 

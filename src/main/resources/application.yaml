@@ -7,18 +7,20 @@ spring:
   application:
     name: core-shop
 
+  # Databases
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/core_shop?serverTimezone=UTC
+    url: jdbc:postgresql://localhost:5432/core_shop
     username: csadmin
     password: 123$
 
+  # JPA
   jpa:
-    open-in-view: false
+    database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
+      # 애플리케이션을 처음 실행할 경우 속성값을 create 또는 none 으로 설정
+      ddl-auto: update
+    show-sql: true
+    generate-ddl: true
+    open-in-view: false
