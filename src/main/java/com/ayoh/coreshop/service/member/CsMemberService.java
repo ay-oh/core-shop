@@ -3,7 +3,6 @@ package com.ayoh.coreshop.service.member;
 import com.ayoh.coreshop.dto.MemberSignUpRequest;
 import com.ayoh.coreshop.entity.member.Member;
 import com.ayoh.coreshop.repository.MemberRepository;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)

@@ -1,6 +1,6 @@
 package com.ayoh.coreshop.security.service;
 
-import com.ayoh.coreshop.entity.member.Role;
+import com.ayoh.coreshop.entity.member.Authority;
 import com.ayoh.coreshop.entity.member.Member;
 import com.ayoh.coreshop.repository.MemberRepository;
 import com.ayoh.coreshop.repository.RoleRepository;
@@ -42,9 +42,9 @@ public class CsUserDetailsService implements UserDetailsService {
         Member member = memberRepository.findByEmail(email)
                                         .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND_MESSAGE));
 
-        List<Role> roles = roleRepository.findRolesByEmail(member.getEmail());
+        List<Authority> authorities = roleRepository.findRolesByEmail(member.getEmail());
 
-        return new CsUserDetails(member.getEmail(), member.getPassword(), roles);
+        return new CsUserDetails(member.getEmail(), member.getPassword(), authorities);
     }
 
 }

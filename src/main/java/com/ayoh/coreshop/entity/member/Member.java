@@ -1,5 +1,6 @@
 package com.ayoh.coreshop.entity.member;
 
+import com.ayoh.coreshop.domain.Role;
 import com.ayoh.coreshop.dto.MemberSignUpRequest;
 
 import java.time.LocalDateTime;

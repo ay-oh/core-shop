@@ -1,6 +1,6 @@
 package com.ayoh.coreshop.security.domain;
 
-import com.ayoh.coreshop.entity.member.Role;
+import com.ayoh.coreshop.entity.member.Authority;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,9 +14,9 @@ public class CsUserDetails implements UserDetails {
 
     private final String email;
     private final String password;
-    private final List<Role> authorities;
+    private final List<Authority> authorities;
 
-    public CsUserDetails(String email, String password, List<Role> authorities) {
+    public CsUserDetails(String email, String password, List<Authority> authorities) {
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -29,7 +29,7 @@ public class CsUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities.stream()
-                          .map(role -> new SimpleGrantedAuthority(role.getCode()))
+                          .map(authority -> new SimpleGrantedAuthority(authority.getCode()))
                           .collect(Collectors.toUnmodifiableList());
     }
 
