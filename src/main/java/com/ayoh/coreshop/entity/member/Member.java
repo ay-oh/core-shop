@@ -1,7 +1,7 @@
 package com.ayoh.coreshop.entity.member;
 
 import com.ayoh.coreshop.domain.Role;
-import com.ayoh.coreshop.dto.MemberSignUpRequest;
+import com.ayoh.coreshop.dto.member.MemberSignUpRequest;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;

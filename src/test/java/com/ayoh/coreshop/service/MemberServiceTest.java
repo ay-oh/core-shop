@@ -9,7 +9,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import com.ayoh.coreshop.dto.MemberSignUpRequest;
+import com.ayoh.coreshop.dto.member.MemberSignUpRequest;
 import com.ayoh.coreshop.entity.member.Member;
 import com.ayoh.coreshop.repository.MemberRepository;
 import java.util.Optional;

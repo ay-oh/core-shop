@@ -24,7 +24,7 @@ import static java.util.Objects.nonNull;
  * @since 1.0.0
  */
 @Component
-public class CsSuccessHandler implements AuthenticationSuccessHandler {
+public class CsLoginSuccessHandler implements AuthenticationSuccessHandler {
 
     public static final String SESSION_ID = "CSESSIONID";
     public static final String DEFAULT_TARGET_URL = "/";
@@ -32,7 +32,7 @@ public class CsSuccessHandler implements AuthenticationSuccessHandler {
     private final RequestCache requestCache;
     private final RedirectStrategy redirectStrategy;
 
-    public CsSuccessHandler() {
+    public CsLoginSuccessHandler() {
         this.requestCache = new HttpSessionRequestCache();
         this.redirectStrategy = new DefaultRedirectStrategy();
     }

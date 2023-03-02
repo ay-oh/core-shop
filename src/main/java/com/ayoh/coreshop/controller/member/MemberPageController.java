@@ -1,6 +1,6 @@
 package com.ayoh.coreshop.controller.member;
 
-import com.ayoh.coreshop.dto.MemberSignUpRequest;
+import com.ayoh.coreshop.dto.member.MemberSignUpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

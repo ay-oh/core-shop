@@ -1,4 +1,4 @@
-package com.ayoh.coreshop.dto;
+package com.ayoh.coreshop.dto.member;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

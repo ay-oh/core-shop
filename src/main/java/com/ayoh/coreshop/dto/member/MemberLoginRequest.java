@@ -1,4 +1,4 @@
-package com.ayoh.coreshop.dto;
+package com.ayoh.coreshop.dto.member;
 
 /**
  * 로그인 폼을 통해 로그인 시도 시 요청 객체입니다.
