@@ -44,4 +44,9 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping(path = "/api")
+    public String goApiDocsPage() {
+        return "pages/api/index";
+    }
+
 }

@@ -54,4 +54,13 @@ main {
 
 main .contents h1 {
   text-align: center;
+  margin-top: 3rem;
+}
+
+main .contents h2 {
+  margin-top: 2rem;
+}
+
+main .contents div {
+  margin-top: 0.5rem;
 }

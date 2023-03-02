@@ -1,16 +1,14 @@
 package com.ayoh.coreshop.entity.product;
 
 import java.time.LocalDateTime;
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 
 /**
  * 회원 개체입니다.
@@ -42,14 +40,23 @@ public class Product {
     @Column
     private String details;
 
-    @Convert(converter = ProductSellStatusConverter.class)
+    @Enumerated(EnumType.STRING)
     @Column(name = "sell_status")
     private ProductSellStatus sellStatus;
 
+    @CreatedBy
+    @Column(name = "created_by")
+    private String createdBy;
+
+    @CreatedDate
     @Column(name = "created_at")
     private LocalDateTime createdDate;
 
-    @Column(name = "updated_at")
+    @LastModifiedBy
+    @Column(name = "modified_by")
+    private String modifiedBy;
+
+    @Column(name = "modified_at")
     private LocalDateTime updatedDate;
 
 }

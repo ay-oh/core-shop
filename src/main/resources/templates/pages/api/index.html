@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- Bootstrap v5.x: https://getbootstrap.com/docs/5.2/getting-started/introduction -->
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+        <!-- Core Shop CSS files -->
+        <link rel="stylesheet" href="../static/css/common/reset.css" th:href="@{/css/common/reset.css}">
+        <link rel="stylesheet" href="../static/css/common/common.css" th:href="@{/css/common/common.css}">
+        <link rel="stylesheet" href="../static/css/api/index.css" th:href="@{/css/api/index.css}">
+
+        <title>CORE SHOP | API 개발자 가이드</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="contents">
+                <div>
+                    <img src="http://via.placeholder.com/48" alt="">
+                    <span><a href="/">CORE SHOP</a></span>
+                </div>
+                <div class="btns">
+                    <a href="/signup" class="btn btn-outline-dark">회원가입</a>
+                    <a href="/login" class="btn btn-outline-dark">로그인</a>
+                    <a href="/logout" class="btn btn-outline-dark">로그아웃</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- https://getbootstrap.com/docs/5.0/components/list-group/#contextual-classes -->
+        <main class="api">
+            <div class="contents">
+                <h1>CORE SHOP API docs</h1>
+
+                <h2>회원 API</h2>
+                <div class="list-group">
+                    <a href="/signup" class="list-group-item list-group-item-action list-group-item-primary">
+                        GET /signup <span class="display-name">회원가입 폼 페이지로 이동</span>
+                    </a>
+                </div>
+                <div class="list-group">
+                    <a href="/login" class="list-group-item list-group-item-action list-group-item-primary">
+                        GET /login <span class="display-name">로그인 페이지로 이동</span>
+                    </a>
+                </div>
+                <div class="list-group">
+                    <a href="/logout" class="list-group-item list-group-item-action list-group-item-primary">
+                        GET /logout <span class="display-name">로그아웃 페이지로 이동</span>
+                    </a>
+                </div>
+
+                <h2>상품 API</h2>
+                <div class="list-group">
+                    <a href="/admin/products/new"
+                       class="list-group-item list-group-item-action list-group-item-primary">
+                        GET /admin/products/new <span class="display-name">상품 등록 페이지로 이동</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
