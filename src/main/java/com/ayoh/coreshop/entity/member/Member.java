@@ -1,11 +1,12 @@
 package com.ayoh.coreshop.entity.member;
 
+import com.ayoh.coreshop.domain.Role;
 import com.ayoh.coreshop.dto.MemberSignUpRequest;
-import com.ayoh.coreshop.security.constant.Role;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -16,7 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
 
 /**
  * 회원 개체입니다.
@@ -77,7 +77,7 @@ public class Member {
         // 스프링 시큐리티 구성 클래스에 등록한 BCryptPasswordEncoder 빈을 매개변수로 넘겨서 비밀번호를 암호화
         String encodedPassword = passwordEncoder.encode(memberRequest.getPassword());
         member.setPassword(encodedPassword);
-        member.setRole(Role.USER);
+        member.setRole(Role.MEMBER);
 
         return member;
     }

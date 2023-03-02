@@ -1,11 +1,17 @@
 package com.ayoh.coreshop.controller.member;
 
 import com.ayoh.coreshop.dto.MemberSignUpRequest;
-import com.ayoh.coreshop.service.MemberService;
+import com.ayoh.coreshop.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
+/**
+ * 회원 관련 요청을 다루는 컨트롤러 클래스입니다.
+ *
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 @Controller
 @RequiredArgsConstructor
 public class MemberController {

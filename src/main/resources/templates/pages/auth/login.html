@@ -1,6 +1,5 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko" xmlns:th="https://www.thymeleaf.org">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -14,11 +13,9 @@
         <!-- Core Shop CSS files -->
         <link rel="stylesheet" href="../static/css/common/reset.css" th:href="@{/css/common/reset.css}">
         <link rel="stylesheet" href="../static/css/common/common.css" th:href="@{/css/common/common.css}">
-        <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
 
-        <title>CORE SHOP | 메인</title>
+        <title>CORE SHOP | 로그인</title>
     </head>
-
     <body>
         <header>
             <div class="contents">
@@ -34,25 +31,29 @@
             </div>
         </header>
 
-        <main>
+        <main role="main">
             <div class="contents">
-                <h1>상품 데이터 출력 예제</h1>
-                <div th:each="item : ${result}">
-                    <br>
-                    상품명: <span th:text="${item.name}"></span>
-                    <br>
-                    상품 가격: <span th:text="${item.price}"></span>
-                    <br>
-                    상품 상세 설명: <span th:text="${item.details}"></span>
-                    <br>
-                    상품 등록일: <span th:text="${item.createdDate}"></span>
-                    <br>
-                </div>
+                <h1>로그인</h1>
+                <form action="/login" method="post" role="form" th:object="${memberLoginRequest}">
+                    <div class="mb-3">
+                        <div class="form-group col-md-6">
+                            <label for="email">이메일 주소</label>
+                            <input type="email" class="form-control" placeholder="이메일 주소를 입력해주세요" id="email"
+                                   th:field="*{email}">
+                            <div id="email-help" class="form-text">이미 존재하는 이메일 주소는 가입할 수 없으니 유의해주세요.</div>
+                        </div>
+                    </div>
 
-                <!-- productDto -->
-                <div th:each="item : ${productDto}">
-                    상품명: <span th:text="${item.getName()}">나는문어</span>
-                </div>
+                    <div class="mb-3">
+                        <label for="password">비밀번호</label>
+                        <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" id="password"
+                               th:field="*{password}">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">로그인</button>
+
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                </form>
             </div>
         </main>
     </body>

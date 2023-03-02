@@ -1,0 +1,57 @@
+/* https://noonnu.cc/font_page/1050 */
+@font-face {
+  font-family: "LINESeedKR-Bd";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: "LINESeedKR-Bd";
+}
+
+header {
+  height: 3rem;
+  border-bottom: 1px solid #222;
+}
+
+header .contents {
+  display: flex;
+  justify-content: space-between;
+  width: 80rem;
+  margin: 0 auto;
+}
+
+header .contents div:first-child {
+  display: flex;
+  align-items: center;
+}
+
+header .contents div:first-child span {
+  margin: 5px 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+header .contents .btns {
+  display: flex;
+  align-items: center;
+}
+
+header .contents .btns a {
+  margin-left: 0.5rem;
+}
+
+main {
+  width: 80rem;
+  height: calc(100vh - 3rem);
+  margin: 0 auto;
+}
+
+main .contents h1 {
+  text-align: center;
+}

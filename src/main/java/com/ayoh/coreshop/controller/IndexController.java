@@ -1,7 +1,8 @@
-package com.ayoh.coreshop.controller.product;
+package com.ayoh.coreshop.controller;
 
 import com.ayoh.coreshop.entity.product.Product;
 import com.ayoh.coreshop.service.product.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,24 +11,22 @@ import java.util.Collection;
 
 /**
  * layered architecture (레이어드 아키텍처)
- * 스트레오타입 애노테이션
  * <p>
  * 컨트롤러의 역할은 사용자의 요청을 받으면 필요한 작업을 담당하는 서비스에게 위임하고, 응답만 적절하게 받아서 뷰로 전달한다.
  */
 @Controller
-public final class ProductController {
+@RequiredArgsConstructor
+public class IndexController {
 
     // Mission #1: @Autowired
 
-    // final 의 용도
-    // 1. 변수에 final 이 붙으면? > 재할당 금지
-    // 2. 메서드에 final 이 붙으면? -> 오버라이딩(재정의) 금지
-    // 3. 클래스에 final 이 붙으면? -> 상속 금지
+    /*
+     * final 의 용도
+     * 1. 변수에 final 이 붙으면? > 재할당 금지
+     * 2. 메서드에 final 이 붙으면? -> 오버라이딩(재정의) 금지
+     * 3. 클래스에 final 이 붙으면? -> 상속 금지
+     */
     private final ProductService productService;
-
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
 
     // Model View Controller -> 레이어드 아키텍처(layered architecture)
     // http://localhost:8080/index.html

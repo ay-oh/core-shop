@@ -1,6 +1,5 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko" xmlns:th="https://www.thymeleaf.org">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -16,9 +15,8 @@
         <link rel="stylesheet" href="../static/css/common/common.css" th:href="@{/css/common/common.css}">
         <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
 
-        <title>CORE SHOP | 메인</title>
+        <title>CORE SHOP | 로그아웃</title>
     </head>
-
     <body>
         <header>
             <div class="contents">
@@ -34,25 +32,9 @@
             </div>
         </header>
 
-        <main>
+        <main role="main">
             <div class="contents">
-                <h1>상품 데이터 출력 예제</h1>
-                <div th:each="item : ${result}">
-                    <br>
-                    상품명: <span th:text="${item.name}"></span>
-                    <br>
-                    상품 가격: <span th:text="${item.price}"></span>
-                    <br>
-                    상품 상세 설명: <span th:text="${item.details}"></span>
-                    <br>
-                    상품 등록일: <span th:text="${item.createdDate}"></span>
-                    <br>
-                </div>
-
-                <!-- productDto -->
-                <div th:each="item : ${productDto}">
-                    상품명: <span th:text="${item.getName()}">나는문어</span>
-                </div>
+                로그아웃 페이지
             </div>
         </main>
     </body>
