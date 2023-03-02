@@ -73,7 +73,7 @@ public class Member {
         // 스프링 시큐리티 구성 클래스에 등록한 BCryptPasswordEncoder 빈을 매개변수로 넘겨서 비밀번호를 암호화
         String encodedPassword = passwordEncoder.encode(memberRequest.getPassword());
         member.setPassword(encodedPassword);
-        member.setRole(Role.USER);
+        member.setRole(Role.MEMBER);
 
         return member;
     }

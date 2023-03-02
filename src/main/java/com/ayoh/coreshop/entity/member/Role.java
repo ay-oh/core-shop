@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Getter
 @ToString
-public class Authority {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,9 +1,7 @@
 package com.ayoh.coreshop.security.service;
 
-import com.ayoh.coreshop.entity.member.Authority;
 import com.ayoh.coreshop.entity.member.Member;
 import com.ayoh.coreshop.repository.MemberRepository;
-import com.ayoh.coreshop.repository.RoleRepository;
 import com.ayoh.coreshop.security.domain.CsUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,7 +26,6 @@ import static com.ayoh.coreshop.security.util.WebSecurityUtils.USER_NOT_FOUND_ME
 public class CsUserDetailsService implements UserDetailsService {
 
     private final MemberRepository memberRepository;
-    private final RoleRepository roleRepository;
 
     /**
      * username 을 통해 사용자 정보를 조회합니다.
@@ -42,9 +39,7 @@ public class CsUserDetailsService implements UserDetailsService {
         Member member = memberRepository.findByEmail(email)
                                         .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND_MESSAGE));
 
-        List<Authority> authorities = roleRepository.findRolesByEmail(member.getEmail());
-
-        return new CsUserDetails(member.getEmail(), member.getPassword(), authorities);
+        return new CsUserDetails(member.getEmail(), member.getPassword(), List.of(member.getRole()));
     }
 
 }

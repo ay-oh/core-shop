@@ -5,6 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * 회원 관련 페이지 요청을 다루는 컨트롤러 클래스입니다.
+ *
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 @Controller
 public class MemberPageController {
 
