@@ -38,7 +38,7 @@ public class WebSecurityConfig {
      */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // http.csrf().disable();
+        http.csrf().disable();
 
         // permitAll only works with either HttpSecurity.authorizeRequests() or HttpSecurity.authorizeHttpRequests(). Please define one or the other but not both.
         http.authorizeHttpRequests()
