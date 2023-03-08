@@ -1,17 +1,21 @@
 package com.ayoh.coreshop.dto.member;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
-@RequiredArgsConstructor
+/**
+ * 1. @Setter & @NoArgsConstructor
+ * 2. ~~@Setter~~ & @AllArgsConstructor
+ */
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
-// @Setter
 public class MemberSignUpRequest {
 
-    private final String email;
-    private final String password;
-    private final String name;
-    private final String address;
+    private String email;
+    private String password;
+    private String name;
+    private String address;
 
 }
