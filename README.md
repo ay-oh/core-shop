@@ -1,1 +1,1 @@
-# core-shop
+# CORE SHOP
